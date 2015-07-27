@@ -2,8 +2,12 @@ require 'sinatra'
 require 'nokogiri'
 require 'open-uri'
 
+set :bind, '0.0.0.0'
+
+USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:39.0) Gecko/20100101 Firefox/39.0'
+
 get '/' do
-  city_links = cities.map { |c| "<a href='/#{c[:path]}'>#{c[:title]}</a>" }.join(' | ')
+  city_links = cities.map { |c| "<a href='/new-life/#{c[:path]}'>#{c[:title]}</a>" }.join(' | ')
   "If you are 18 or older, you can give up and start over in: <br>#{city_links}"
 end
 
@@ -19,14 +23,14 @@ get '/:city' do
 end
 
 def cities
-  cities_page = Nokogiri::HTML(open('https://geo.craigslist.org/iso/us'))
-  cities_page.css('div#postingbody li a').map do |c|
-    { title: c.text, path: c['href'].match(%r{^http://(.+?)\..*}).captures[0] }
-  end
+  @cities ||=
+    Nokogiri::HTML(open('https://geo.craigslist.org/iso/us', 'User-Agent' => USER_AGENT)).css('div#postingbody li a').map do |c|
+      { title: c.text, path: c['href'].match(%r{^http://(.+?)\..*}).captures[0] }
+    end
 end
 
 def go_back
-  "<a href='/'><-- give up and start over again</a><p></p>"
+  "<a href='/new-life'><-- give up and start over again</a><p></p>"
 end
 
 def welcome(city)
