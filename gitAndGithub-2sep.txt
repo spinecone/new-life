@@ -1,0 +1,27 @@
+summary of class on 2 sep 2019.
+
+today's class was based on mainly 
+
+1. Forking: creating copy of someone else's repository in your profile.
+	-> Just click on fork button.
+
+2. Cloning: to clone a online repository to your machine.
+	-> git clone <repo's_URL>
+
+3. Updating: updating the code in local( your PC). Consist of "add" and "commit"
+
+4. Pushing : pushing the code from local to online(GitHub's repo)
+	-> git push -u origin master.
+
+5. Branching: creating branch apart from main "master" branch.
+	-> git branch <branch_name>
+	benefits of branching: -stable code in master branch is safe.
+			       -we can do experiment without any worry.
+			       -size compression. in case of two different paths to be followed.
+
+6. Merging: merging one branch into other.
+	  -> git merge <parent_branch> <child_branch>
+
+7. pulling: to update local repository. If online repository is ahead of our local repository.
+	  -> git pull <url>
+

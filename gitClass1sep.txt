@@ -1,0 +1,26 @@
+Git and GitHub class summary:
+0. Version Control System (VCS): centralised and decentralised 
+1. Git - A VCS tool
+2. GitHub - provide online hosting of project.
+3. Difference between git and GitHub
+4. Importance of git and github:
+				a)log maintainance
+				b) Project sharing
+				c) checkpoints
+				d) Documentation
+				e) Free storage
+				f) Showcase
+				g) size compression (in case of branchs)
+				h) open source contribution and GSoC
+5. Git Bash : for running linux commands in Windows.
+6. Repository : initalising - git init
+7. Creating account on GitHub
+8. Creating a repository on github
+9. linking a repo : git remote add <remote_name> URL
+10. checking log : git log
+11. checking status : git status
+12. staging : add : git add .
+13. commiting : commit : git commit -m "<commit_message>"
+14. Pushing : push : git push -u <remote_name> <branch_name>
+15. reset : method 1: git reset HEAD~2
+	    method 2: git reset <first 7 values>
